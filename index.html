@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Snake Vue</title>
+</head>
+<body>
+    <div id='app' class="contenitor"
+    tabindex='0'
+    @keyup.37='goLeft' 
+    @keyup.39='goRight'
+    @keyup.38='goUp' 
+    @keyup.40='goDown'
+    >
+        <h1
+        @click='goDown'
+        >SNAKE</h1>
+        <div class="game">
+            <div class="box"
+            v-for='(element,index) in field'
+            >
+                <div class="snake"
+                v-for='(snake,ind) in snakePosition'
+                v-show='snakePosition[ind].axisX===field[index].axisX && snakePosition[ind].axisY===field[index].axisY'>
+
+                </div>
+            </div>
+        </div>
+
+    </div>
+    
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>

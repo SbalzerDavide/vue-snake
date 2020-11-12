@@ -1,0 +1,60 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: sans-serif;
+    background-color: #fca311;
+}
+
+.contenitor{
+    width: 1000px;
+    margin: 20px auto;
+}
+h1{
+    text-align: center;
+}
+
+
+.game{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    height: 500px;
+    width: 500px;
+    margin: 20px auto;
+    background-color: thistle;
+}
+
+.box{
+    width: 25px;
+    height: 25px;
+    border: 1px solid black;
+}
+
+.snake{
+    height: 100%;
+    width: 100%;
+    background-color: violet;
+}
+
+
+/* .game{
+    display: flex;
+    flex-wrap: wrap;
+    height: 800px;
+    width: 800px;
+    margin: 20px auto;
+    background-color: wheat;
+}
+
+.box{
+    width: calc(100%/20);
+    height: calc(100%/20);
+    background-color: turquoise;
+    border: 1px solid black;
+
+
+} */
