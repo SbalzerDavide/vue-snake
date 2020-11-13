@@ -33,58 +33,79 @@ const app = new Vue ({
             };
         },
         goRight(){
-            this.right = setInterval(() =>{
-                this.snakePosition.forEach((single,index) =>{
-                    single.axisX ++;
-                    if (single.axisX > 20){
-                        single.axisX = 1;
-                    };
-                })
-            }, this.time);
-            clearInterval(this.left);
-            clearInterval(this.up);
-            clearInterval(this.down);
+            if (this.right === 0 && this.left === 0){
+                console.log('ciaoo');
+                this.right = setInterval(() =>{
+                    this.snakePosition.forEach((single,index) =>{
+                        single.axisX ++;
+                        if (single.axisX > 20){
+                            single.axisX = 1;
+                        };
+                    })
+                }, this.time);
+                clearInterval(this.left);
+                clearInterval(this.up);
+                clearInterval(this.down);
+                this.left= 0;
+                console.log('left= ',this.left);
+                this.up= 0;
+                this.down= 0 ;
+        
+            }
         },
         goLeft(){
-            this.left = setInterval(() =>{
-                this.snakePosition.forEach((single,index) =>{
-                    single.axisX --;
-                    if (single.axisX < 1){
-                        single.axisX = 20;
-                    };
-                })
-            }, this.time);
-            clearInterval(this.right);
-            clearInterval(this.up);
-            clearInterval(this.down);
+            if (this.left === 0 && this.right === 0){
+                this.left = setInterval(() =>{
+                    this.snakePosition.forEach((single,index) =>{
+                        single.axisX --;
+                        if (single.axisX < 1){
+                            single.axisX = 20;
+                        };
+                    })
+                }, this.time);
+                clearInterval(this.right);
+                clearInterval(this.up);
+                clearInterval(this.down);
+                this.right = 0;
+                this.up = 0;
+                this.down = 0;
+            }
         },
         goDown(){
-             this.down = setInterval(() =>{
-                this.snakePosition.forEach((single,index) =>{
-                    single.axisY ++;
-                    if (single.axisY > 20){
-                        single.axisY = 1;
-                    };
-                })
-            },this.time);
-            clearInterval(this.right);
-            clearInterval(this.up);
-            clearInterval(this.left);
-
+            if (this.down === 0 && this.up === 0){
+                this.down = setInterval(() =>{
+                   this.snakePosition.forEach((single,index) =>{
+                       single.axisY ++;
+                       if (single.axisY > 20){
+                           single.axisY = 1;
+                       };
+                   })
+               },this.time);
+               clearInterval(this.right);
+               clearInterval(this.up);
+               clearInterval(this.left);
+               this.right = 0;
+               this.left = 0;
+               this.up = 0;
+            }
         },
         goUp(){
-            this.up = setInterval(() =>{
-                this.snakePosition.forEach((single,index) =>{
-                    single.axisY --;
-                    if (single.axisY < 1){
-                        single.axisY = 20;
-                    };
-                })
-            },this.time);
-            clearInterval(this.right);
-            clearInterval(this.left);
-            clearInterval(this.down);
-
+            if (this.down === 0 && this.up === 0){
+                this.up = setInterval(() =>{
+                    this.snakePosition.forEach((single,index) =>{
+                        single.axisY --;
+                        if (single.axisY < 1){
+                            single.axisY = 20;
+                        };
+                    })
+                },this.time);
+                clearInterval(this.right);
+                clearInterval(this.left);
+                clearInterval(this.down);
+                this.right = 0;
+                this.left = 0;
+                this.down = 0;
+            }    
         },
 
 
