@@ -50,22 +50,3 @@ h1{
 .flowe.snake{
     background-color: black;
 }
-
-
-/* .game{
-    display: flex;
-    flex-wrap: wrap;
-    height: 800px;
-    width: 800px;
-    margin: 20px auto;
-    background-color: wheat;
-}
-
-.box{
-    width: calc(100%/20);
-    height: calc(100%/20);
-    background-color: turquoise;
-    border: 1px solid black;
-
-
-} */

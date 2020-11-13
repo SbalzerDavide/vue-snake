@@ -21,7 +21,6 @@ const app = new Vue ({
         intervalFlower: 0,
         point: 0,
         intervalPoint: 0,
-        sameClass: false,
 
 
     },
@@ -123,8 +122,6 @@ const app = new Vue ({
             this.flowerPosition = {
                 axisX: this.randomNumber(),
                 axisY: this.randomNumber(),
-                // axisX: 4,
-                // axisY: 1,
             };
         },
         changeFlower(){
@@ -140,14 +137,7 @@ const app = new Vue ({
                     this.point++;
                     clearInterval(this.intervalFlower);
                     this.startflower();
-                    this.sameClass = true;
-            } else {
-                this.sameClass = false;
             };
-            // console.log('flower x: ', this.flowerPosition.axisX);
-            // console.log('flower y: ', this.flowerPosition.axisY);
-            // console.log('snake x: ', this.snakePosition[0].axisX);
-            // console.log('snake y: ', this.snakePosition[0].axisY);
         },
         setPointInterval(){
             this.intervalPoint = setInterval(this.makePoint, this.time)

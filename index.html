@@ -31,8 +31,10 @@
                 v-show='snakePosition[ind].axisX===field[index].axisX && snakePosition[ind].axisY===field[index].axisY'>
                 </div>
                 <div class="flower"
-                v-show='flowerPosition.axisX===field[index].axisX && flowerPosition.axisY===field[index].axisY && sameClass === false'
+                v-show='flowerPosition.axisX===field[index].axisX && flowerPosition.axisY===field[index].axisY'
                 >
+                </div>
+                <!-- <div v-else class="same"></div> -->
                 </div>
             </div>
         </div>
