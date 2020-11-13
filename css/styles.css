@@ -40,6 +40,17 @@ h1{
     background-color: violet;
 }
 
+.flower{
+    height: 100%;
+    width: 100%;
+    background-color: green;
+
+}
+
+.flowe.snake{
+    background-color: black;
+}
+
 
 /* .game{
     display: flex;

@@ -12,17 +12,28 @@ const app = new Vue ({
             //     axisX: 2,
             // },
         ],
-        time:100,
+        flowerPosition:{},
+        time:200,
         right:0,
         left:0,
         up:0,
         down:0,
+        intervalFlower: 0,
+        point: 0,
+        intervalPoint: 0,
+        sameClass: false,
+
 
     },
     created(){
-        this.createBox();
+        this.initialFunction();
     },
     methods:{
+        initialFunction(){
+            this.createBox();
+            this.startflower();
+            this.setPointInterval();
+        },
         createBox(){
             for (let i = 1; i<= 20; i++){
                 for (let j = 1; j<= 20; j++)
@@ -34,7 +45,6 @@ const app = new Vue ({
         },
         goRight(){
             if (this.right === 0 && this.left === 0){
-                console.log('ciaoo');
                 this.right = setInterval(() =>{
                     this.snakePosition.forEach((single,index) =>{
                         single.axisX ++;
@@ -47,7 +57,6 @@ const app = new Vue ({
                 clearInterval(this.up);
                 clearInterval(this.down);
                 this.left= 0;
-                console.log('left= ',this.left);
                 this.up= 0;
                 this.down= 0 ;
         
@@ -107,10 +116,43 @@ const app = new Vue ({
                 this.down = 0;
             }    
         },
+        randomNumber(){
+            return Math.floor(Math.random() * 20) +1;
+        },
+        putFlower(){
+            this.flowerPosition = {
+                axisX: this.randomNumber(),
+                axisY: this.randomNumber(),
+                // axisX: 4,
+                // axisY: 1,
+            };
+        },
+        changeFlower(){
+            this.intervalFlower = setInterval(this.putFlower, 10000);
+        },
+        startflower(){
+            this.putFlower();
+            this.changeFlower();
+        },
+        makePoint(){
+            if (this.flowerPosition.axisX == this.snakePosition[0].axisX && 
+                this.flowerPosition.axisY == this.snakePosition[0].axisY){
+                    this.point++;
+                    clearInterval(this.intervalFlower);
+                    this.startflower();
+                    this.sameClass = true;
+            } else {
+                this.sameClass = false;
+            };
+            // console.log('flower x: ', this.flowerPosition.axisX);
+            // console.log('flower y: ', this.flowerPosition.axisY);
+            // console.log('snake x: ', this.snakePosition[0].axisX);
+            // console.log('snake y: ', this.snakePosition[0].axisY);
+        },
+        setPointInterval(){
+            this.intervalPoint = setInterval(this.makePoint, this.time)
+        }
 
-
-
-
-
+        
     }
 });
