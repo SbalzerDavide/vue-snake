@@ -4,8 +4,8 @@ const app = new Vue ({
         field: [],
         snakePosition:[
             {
-                axisY: 2,
-                axisX: 2,
+                axisY: 1,
+                axisX: 1,
             },
             // {
             //     axisY: 1,
@@ -13,7 +13,7 @@ const app = new Vue ({
             // },
         ],
         flowerPosition:{},
-        time:400,
+        time:200,
         right:0,
         left:0,
         up:0,
@@ -22,8 +22,6 @@ const app = new Vue ({
         point: 0,
         intervalPoint: 0,
         visibility: 'show',
-        level : 1,
-        wall: [],
 
 
 
@@ -36,7 +34,6 @@ const app = new Vue ({
             this.createBox();
             this.startflower();
             this.setPointInterval();
-
         },
         createBox(){
             for (let i = 1; i<= 20; i++){
@@ -140,49 +137,17 @@ const app = new Vue ({
             if (this.flowerPosition.axisX == this.snakePosition[0].axisX && 
                 this.flowerPosition.axisY == this.snakePosition[0].axisY){
                     this.point++;
-                    if (this.point >= 5 && this.point <= 9){
-                        this.time = 300;
-                        this.level = 1;
-                    } else if (this.point >= 10 && this.point <= 14){
-                        this.time = 200;
-                        this.level = 2;
-                    } else if (this.point == 15){
-                        this.time = 150;
-                        this.level = 3;
-                        this.levelThree();
-                        this.point = 16
-                    } else if (this.point >= 15 && this.point <= 19){
-                        this.time = 150;
-                        this.level = 3;
-                        this.levelThree();
-                    } else if (this.point >= 20){
-                        this.time = 100;
-                        this.level = 4;
-                    };
                     clearInterval(this.intervalFlower);
                     this.startflower();
                     this.visibility = 'hidden';
             } else{
                 this.visibility = 'show';
             };
+            console.log(this.visibility);
         },
         setPointInterval(){
             this.intervalPoint = setInterval(this.makePoint, this.time)
-        },
-        levelThree(){
-            if (this.level === 3){
-                for (let i = 1; i<= 20; i++){
-                    for (let j = 1; j<= 20; j++)
-                    if (i == 1 || i == 20 || j == 1 || j == 20){
-                        this.wall.push({
-                            axisY: i,
-                            axisX: j,
-                        })
-                    }
-                };
-            };
-        },
-        
+        }
 
         
     }

@@ -47,6 +47,13 @@ h1{
 
 }
 
-.flowe.snake{
-    background-color: black;
+.wall{
+    height: 100%;
+    width: 100%;
+    background-color: #000;
+
+}
+
+.hidden{
+    display: none;
 }

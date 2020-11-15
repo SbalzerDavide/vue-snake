@@ -17,9 +17,11 @@
         <h1
         @click='goDown'
         >SNAKE</h1>
-        <h2>punti: {{ point }}</h2>
-        <span>velocità: {{time}}</span>
-        <span>livello {{level}}</span>
+        <h2>{{ point }}</h2>
+        <span>{{flowerPosition.axisX}}</span>
+        <span>{{flowerPosition.axisY}}</span>
+        <span>{{snakePosition[0].axisX}}</span>
+        <span>{{snakePosition[0].axisY}}</span>
         <div class="game">
             <div class="box"
             v-for='(element,index) in field'
@@ -33,10 +35,7 @@
                 v-show='flowerPosition.axisX===field[index].axisX && flowerPosition.axisY===field[index].axisY'
                 >
                 </div>
-                <div class="wall"
-                v-for='(ladrillo,ind) in wall'
-                v-show='wall[ind].axisX===field[index].axisX && wall[ind].axisY===field[index].axisY'>
-                </div>
+                <!-- <div v-else class="same"></div> -->
                 </div>
             </div>
         </div>
